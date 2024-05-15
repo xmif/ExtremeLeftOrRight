@@ -1,0 +1,50 @@
+<head>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<html>
+    <title>👈 or 👉</title>
+    <form class="center" method="POST">
+        <!-- <input name="text"> -->
+        <textarea name="content"
+            placeholder="Message content"
+            rows="8"
+            cols="100">
+        {{- request.form['content'] -}}
+    </textarea>
+<!-- >{{ request.form['content'] if request.form['content'] else "" }}</textarea> -->
+        <br><br>
+        <input type="submit">
+    </form>
+    <div class="common discord">
+        <!-- <span class="discordavatar">tbd</span><br> -->
+        <img src="static/avatardiscord.png" aria-hidden="true" class="discordavatar" alt=" ">
+        <span>Discord User</span>
+        <span class="discordtimestamp">Today at HH:MM AM</span>
+        <br>
+        {{data.text|safe}}
+    </div>
+    <div class="common pol">
+    <span style="color:var(--pol-username);">Anonymous</span>
+    <span>(ID: </span>
+    <span style="background:var(--pol-id-bg);color:var(--pol-id-fg);">AbCdEf12)</span>
+    <span class="">🇺🇸</span>
+    <span class="">MM/DD/YY(Ddd) HH:MM:SS<span>
+        <span class="">No.123456789</span>
+        <span style="color:var(--pol-reply);">>>4abcdefg1 >>4abcdefg2 >>4abcdefg3</span><br>
+        {{data.text|safe}}
+    </div>
+    {#{% if data.twitter_enabled %}#}
+    <div class="common twitter">
+        <img src="static/avatartwitter.png" aria-hidden="true" class="twitteravatar" alt=" ">
+        <span class="twitteruser">Twitter User</span>
+        <br>
+        <span class="twitterhandle">@twitter_handle</span>
+        <br><br>
+        {{data.text|safe}}
+        <br>
+        <span class="twittertimestamp">HH:MM AM · Month Day, Year ·</span>
+        <span class="twitteviews">20.2K</span>
+        <span class="twittertimestamp">Views</span>
+    </div>
+    {#{% endif %}#}
+</html>

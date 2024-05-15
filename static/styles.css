@@ -1,0 +1,182 @@
+body {
+    /* background-color: #222; */
+    background-color: #000;
+    color: yellow;
+}
+
+.center {
+    /* position: center; */
+    /* margin: auto; */
+    text-align: center;
+}
+
+.common {
+    padding-left: 5px;
+    margin-block-start: 0.50em;
+}
+
+/* Discord variable for ~~easy~~ updating */
+/* :root {
+    --font-primary: 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-display: 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-headline: 'ABC Ginto Nord', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-code: 'gg mono', 'Source Code Pro', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
+    'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco,
+    'Courier New', Courier, monospace;
+    --font-clan-body: Fraunces, 'gg sans', serif, 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-clan-signature: Corinthia, 'gg sans', cursive, 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    
+} */
+
+/* Generic variables */
+:root {
+    --pol-username: #117743;
+    --pol-reply: #00e;
+    --pol-id-bg: cyan;
+    --pol-id-fg: black;
+}
+
+.discordavatar {
+    position: absolute;
+    left: 16px;
+    margin-top: calc(4px - 0.125rem);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    flex: 0 0 auto;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.discorduser {
+    color: rgb(242, 243, 245);
+    line-height: 22px;
+}
+
+.discordtimestamp {
+    font-size: 12px;
+    color: rgb(148, 155, 164);
+    font-weight: 500;
+}
+
+.discord {
+    /* TBD */
+    /* border: purple 3px solid; */
+    border: #7289da 3px solid;
+    /* border: #99aab5 3px solid; */
+    /* border: #2c2f33 3px solid; */
+    /* border: #23272a 3px solid; */
+    /* font-family: var(--font-primary); */
+    font-family: 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+    background: #313338;
+
+    font-size: 1rem;
+    line-height: 1.375rem;
+    /* white-space: pre-wrap; */
+    /* white-space: break-spaces; */
+    word-wrap: break-word;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    user-select: text;
+    color: hsl(210 calc( 1 * 9.1%) 87.1% / 1);
+    /* fuck your math */
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    user-select: text;
+    margin-left: calc(-1*var(40px + 16px + 16px));
+    padding-left: calc(32px + 16px + 16px);
+}
+
+.pol {
+    border: maroon 3px solid;
+    /* background-color: #B86; */
+    /* color: maroon; */
+    /* background: #ffe url(/image/fade.png) top center repeat-x; */
+    background: #ffffee;
+    color: maroon;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 10pt;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.twitteravatar { /* to be fixed */
+    border: #e7e9ea 2px solid;
+    position: absolute;
+    left: 8px;
+    margin-top: calc(4px - 0.125rem);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    flex: 0 0 auto;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.twitteruser {
+    /* color: rgb(242, 243, 245); */
+    color: rgb(231, 233, 234);
+    padding-left: 50px;
+    line-height: 20px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.twitterhandle {
+    /* color: rgb(242, 243, 245); */
+    color: rgb(113, 118, 123);
+    padding-left: 50px;
+    line-height: 20px;
+}
+
+.twitter {
+    border: #1D9BF0 3px solid;
+    /*  */
+    background-color: rgba(0,0,0,0.00);
+    color: rgb(231, 233, 234);  
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* border: 0 solid black; */
+    /* box-sizing: border-box; */
+    /* color: inherit; */
+    /* display: inline; */
+    /* font: inherit; */
+    /* list-style: none; */
+    margin: 0px;
+    /* padding: 0px; */
+    position: relative;
+    text-align: inherit;
+    text-decoration: none;
+    white-space: inherit;
+    word-wrap: break-word;
+}
+
+.twittertimestamp {
+    color: rgb(113, 118, 123);
+    font-size: 15px;
+    font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.twitteviews {
+    /* color: rgb(242, 243, 245); */
+    color: rgb(231, 233, 234);
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: 700;
+}
