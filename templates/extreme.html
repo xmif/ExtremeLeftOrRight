@@ -5,21 +5,86 @@
     <title>👈 or 👉</title>
     <form class="center" method="POST">
         <!-- <input name="text"> -->
-        <textarea name="content"
+        <textarea name="message_body"
             placeholder="Message content"
             rows="8"
             cols="100">
-        {{- request.form['content'] -}}
-    </textarea>
-<!-- >{{ request.form['content'] if request.form['content'] else "" }}</textarea> -->
+            {{- request.form['message_body'] -}}
+        </textarea>
+        <br>
+        <textarea name="avatar"
+            placeholder="(optional) twitter avatar link here (.png), catbox.moe works"
+            rows="1"
+            cols="55">
+            {{- request.form['avatar'] -}}
+        </textarea>
+        <br>
+        <textarea name="username"
+            placeholder="Twitter User"
+            rows="1"
+            cols="30">
+            {{- request.form['username'] -}}
+        </textarea>
+        <textarea name="handle"
+            placeholder="@twitter_handle (don't add @)"
+            rows="1"
+            cols="30">
+            {{- request.form['handle'] -}}
+        </textarea>
+        <br>
+        <textarea name="timestamp"
+            placeholder="HH:MM AM"
+            rows="1"
+            cols="20">
+            {{- request.form['timestamp'] -}}
+        </textarea>
+        <textarea name="datestamp"
+            placeholder="Month Day, Year"
+            rows="1"
+            cols="20">
+            {{- request.form['datestamp'] -}}
+        </textarea>
+        <textarea name="views"
+            placeholder="20.2K"
+            rows="1"
+            cols="10">
+            {{- request.form['views'] -}}
+        </textarea>
+        <!-- >{{ request.form['content'] if request.form['content'] else "" }}</textarea> -->
         <br><br>
         <input type="submit">
     </form>
+    {#{% if data.twitter_enabled %}#}
+    <div class="common twitter">
+        <!-- <img src="static/avatartwitter.png" aria-hidden="true" class="twitteravatar" alt=" "> -->
+        <img src="{{request.form.get('avatar') if request.form.get('avatar') else 'static/avatartwitter.png'}}" aria-hidden="true" class="twitteravatar" alt=" ">
+        <!-- <span class="twitteruser">Twitter User</span> -->
+        <span class="twitteruser">{{request.form.get('username') if request.form.get('username') else 'Twitter User'}}</span>
+        <br>
+        <span class="twitterhandle">@{{request.form.get('handle') if request.form.get('handle') else 'twitter_handle'}}</span>
+        <br><br>
+        {{data.text|safe}}
+        <br>
+        <!-- <span class="twittertimestamp">HH:MM AM · Month Day, Year ·</span> -->
+        <span class="twittertimestamp">
+            {{request.form.get('timestamp') if request.form.get('timestamp') else 'HH:MM AM'}}
+            ·
+            {{request.form.get('datestamp') if request.form.get('datestamp') else 'Mmm DD, YYYY'}}
+            ·
+        </span>
+        <!-- <span class="twitteviews">20.2K</span> -->
+        <span class="twitteviews">{{request.form.get('views') if request.form.get('views') else '20.2K'}}</span>
+        <span class="twittertimestamp">Views</span>
+    </div>
+    {#{% endif %}#}
     <div class="common discord">
         <!-- <span class="discordavatar">tbd</span><br> -->
-        <img src="static/avatardiscord.png" aria-hidden="true" class="discordavatar" alt=" ">
-        <span>Discord User</span>
-        <span class="discordtimestamp">Today at HH:MM AM</span>
+        <!-- <img src="static/avatardiscord.png" aria-hidden="true" class="discordavatar" alt=" "> -->
+        <img src="{{request.form.get('avatar') if request.form.get('avatar') else 'static/avatardiscord.png'}}" aria-hidden="true" class="discordavatar" alt=" ">
+        <!-- <span>Discord User</span> -->
+        <span>{{request.form.get('username') if request.form.get('username') else 'Discord User'}}</span>
+        <!-- <span class="discordtimestamp">Today at HH:MM AM</span> -->
+        <span class="discordtimestamp">Today at {{request.form.get('timestamp') if request.form.get('timestamp') else 'HH:MM AM'}}</span>
         <br>
         {{data.text|safe}}
     </div>
@@ -28,23 +93,14 @@
     <span>(ID: </span>
     <span style="background:var(--pol-id-bg);color:var(--pol-id-fg);">AbCdEf12)</span>
     <span class="">🇺🇸</span>
-    <span class="">MM/DD/YY(Ddd) HH:MM:SS<span>
+    <!-- <span class="">MM/DD/YY(Ddd) HH:MM:SS<span> -->
+    <span class="">
+        {{request.form.get('datestamp') if request.form.get('datestamp') else 'MM/DD/YY (Ddd)'}}
+        
+        {{request.form.get('timestamp') if request.form.get('timestamp') else 'HH:MM:SS'}}
+    <span>
         <span class="">No.123456789</span>
         <span style="color:var(--pol-reply);">>>4abcdefg1 >>4abcdefg2 >>4abcdefg3</span><br>
         {{data.text|safe}}
     </div>
-    {#{% if data.twitter_enabled %}#}
-    <div class="common twitter">
-        <img src="static/avatartwitter.png" aria-hidden="true" class="twitteravatar" alt=" ">
-        <span class="twitteruser">Twitter User</span>
-        <br>
-        <span class="twitterhandle">@twitter_handle</span>
-        <br><br>
-        {{data.text|safe}}
-        <br>
-        <span class="twittertimestamp">HH:MM AM · Month Day, Year ·</span>
-        <span class="twitteviews">20.2K</span>
-        <span class="twittertimestamp">Views</span>
-    </div>
-    {#{% endif %}#}
 </html>

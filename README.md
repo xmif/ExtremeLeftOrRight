@@ -41,9 +41,8 @@ Windows | PowerShell | PS C:\> `<venv>`\Scripts\Activate.ps1
 
 `flask run --debug`
 
-### Open Web UI
+### Open Web UI locally
 
-open:
 - [127.0.0.1:5000](127.0.0.1:5000)
 - or directly to [127.0.0.1:5000/extreme](127.0.0.1:5000/extreme) in a browser
 

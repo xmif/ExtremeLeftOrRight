@@ -28,26 +28,30 @@ def index(data={"text":"Sample text"}):
 def create(data=dict()):
     if request.method == 'POST':
         # title = request.form['title']
-        content = request.form['content']
+        message_body = request.form['message_body']
 
         # if not title:
         #     flash('Title is required!')
         # elif not content:
         #     flash('Content is required!')
-        if not content:
-            flash('Content is required!')
-        else:
-            data = {
-                # This is bad, get better later:
-                # https://flask.palletsprojects.com/en/2.2.x/templating/#controlling-autoescaping
-                "text": content.replace("\n", "<br>"),
-                "twitter_enabled": True,
-                # "text": content,
-            }
+        if not message_body:
+            # Flask.flash('Content is required!')
+            # return ("Your needs a message", 402)
+            message_body = "WHAT A WEASLY<br>LITTLE<br>LIAR<br>DUDE<br>SmashHit"
+        data = {
+            # This is bad, get better later:
+            # https://flask.palletsprojects.com/en/2.2.x/templating/#controlling-autoescaping
+            "text": message_body.replace("\n", "<br>"),
+            "twitter_enabled": True,
+            # "text": message_body,
+        }
             # print(content)
             # messages.append({'title': title, 'content': content})
             # messages.append({'content': content})
             # return redirect(url_for('index'))
-            return render_template('extreme.html', data=data)
+        return render_template('extreme.html', data=data)
 
     return render_template('extreme.html')
+
+if __name__ == '__main__':
+    app.run()
