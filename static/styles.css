@@ -110,7 +110,7 @@ body {
 }
 
 .twitteravatar { /* to be fixed */
-    border: #e7e9ea 2px solid;
+    /* border: #e7e9ea 2px solid; */
     position: absolute;
     left: 8px;
     margin-top: calc(4px - 0.125rem);
@@ -167,6 +167,12 @@ body {
     text-decoration: none;
     white-space: inherit;
     word-wrap: break-word;
+}
+
+.twitter > a {
+    text-overflow: unset;
+    color: rgb(29, 155, 240);
+    text-decoration: none;
 }
 
 .twittertimestamp {
